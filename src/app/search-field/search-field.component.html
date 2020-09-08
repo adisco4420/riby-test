@@ -1,10 +1,11 @@
 
 <div class="row">
     <div class="col-md-12">
-        <form class="form-horizontal">
+        <form class="form-horizontal"  (ngSubmit)="submit(search)" >
             <div class="form-group">
                 <div class="col-md-10">
                     <input type="text"
+                           ngModel #search="ngModel"
                            name="giphy-search"
                            class="form-control"
                            placeholder="type your search here"
