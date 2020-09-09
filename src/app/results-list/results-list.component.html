@@ -1,4 +1,32 @@
-<div>
+<div class="row">
     <!-- Implement result list here -->
-    Results List
+    <div class="col-12">
+        <h6>Results List</h6>
+    </div>
+    <ng-container *ngIf="(gifList$ | async) as gifList">
+        <ng-container *ngIf="gifList?.length; else noResult">
+            <div class="is-clickable" (click)="viewGif(gif)" *ngFor="let gif of gifList" class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h5 class="card-title">{{gif.title}}</h5></div>
+                    <div class="panel-body">
+                        <img width="100%" height="200px" [src]="gif.images.original.url" [alt]="gif.id">
+                    </div>
+                  </div>
+                <!-- <div class="card" style="width: 18rem;">
+                    <img width="250px" height="200px" [src]="gif.images.original.url" [alt]="gif.id">
+                    <div class="card-body">
+                      <h5 class="card-title">{{gif.title}}</h5>
+                    </div>
+                </div> -->
+            </div>
+        </ng-container> 
+        <ng-template #noResult>
+            <div class="col-12">
+                <p>No Result</p>
+            </div>
+        </ng-template>
+
+    </ng-container>
+
+
 </div>

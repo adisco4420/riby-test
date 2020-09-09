@@ -1,3 +1,5 @@
+import { NgReduxModule } from '@angular-redux/store';
+import { RouterModule } from '@angular/router';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ResultsListComponent } from './results-list.component';
@@ -8,14 +10,15 @@ describe('ResultsListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ResultsListComponent ]
+      declarations: [ ResultsListComponent ],
+      imports: [ RouterModule, NgReduxModule]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ResultsListComponent);
-    component = fixture.componentInstance;
+    component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
   });
 
